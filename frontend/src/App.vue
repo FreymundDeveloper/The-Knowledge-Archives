@@ -1,6 +1,6 @@
 <template>
 	<div id="app">
-		<HeaderMain />
+		<HeaderMain title="The Knowledge Archives" :hideToggle="false" />
 		<MenuMain />
 		<ContentMain />
 		<FooterMain />
