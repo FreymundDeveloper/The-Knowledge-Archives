@@ -18,12 +18,12 @@ export default {
     },
     computed: {
         icon() {
-            return "fa-angle-left"
+            return this.$store.state.isMenuVisible ? "fa-angle-left" : "fa-angle-down"
         }
     },
     methods: {
         toggleMenu() {
-
+            this.$store.commit('toggleMenu')
         }
     }
 }
@@ -54,6 +54,7 @@ export default {
     header.header > a.toggle {
         width: 60px;
         height: 100%;
+        color: #fff;
         justify-self: flex-start;
         text-decoration: none;
         cursor: pointer;
