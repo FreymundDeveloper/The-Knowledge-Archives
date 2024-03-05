@@ -2,12 +2,12 @@ import Vue from 'vue'
 import Toasted from 'vue-toasted'
 
 Vue.use(Toasted, {
-    incoPack: 'fontawesome',
+    iconPack: 'fontawesome',
     duration: 3000
 })
 
 Vue.toasted.register(
-    'defaultSucess',
+    'defaultSuccess',
     payload => !payload.msg ? 'Operation realizate with success!' : payload.msg,
     { type: 'success', icon: 'check' }
 )
