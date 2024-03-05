@@ -5,23 +5,23 @@
         <b-row>
             <b-col md="6" sm="12">
                 <b-form-group label="Name:" label-for="user-name">
-                    <b-form-input id="user-name" type="text" v-model="user.name"
+                    <b-form-input id="user-name" type="text" v-model="user.name" :readonly="mode === 'remove'"
                         required placeholder="Enter the user name">
                     </b-form-input>
                 </b-form-group>
             </b-col>
             <b-col md="6" sm="12">
                 <b-form-group label="Email:" label-for="user-email">
-                    <b-form-input id="user-email" type="text" v-model="user.email"
+                    <b-form-input id="user-email" type="text" v-model="user.email" :readonly="mode === 'remove'"
                         required placeholder="Enter the user email">
                     </b-form-input>
                 </b-form-group>
             </b-col>
         </b-row>
-        <b-form-checkbox id="user-admin" v-model="user.admin" class="mt-3 mb-3">
+        <b-form-checkbox id="user-admin" v-show="mode === 'save'" v-model="user.admin" class="mt-3 mb-3">
             Administrator?
         </b-form-checkbox>
-        <b-row>
+        <b-row v-show="mode === 'save'">
             <b-col md="6" sm="12">
                 <b-form-group label="Password:" label-for="user-password">
                     <b-form-input id="user-password" type="password" v-model="user.password"
@@ -38,12 +38,25 @@
                 </b-form-group>
             </b-col>
         </b-row>
-        <b-button variant="primary" v-if="mode === 'save'" @click="save">Save</b-button>
-        <b-button variant="danger" v-if="mode === 'remove'" @click="remove">Delete</b-button>
-        <b-button class="ml-2" @click="reset">Cancel</b-button>
+        <b-row>
+            <b-col xs="12">
+                <b-button variant="primary" v-if="mode === 'save'" @click="save">Save</b-button>
+                <b-button variant="danger" v-if="mode === 'remove'" @click="remove">Delete</b-button>
+                <b-button class="ml-2" @click="reset">Cancel</b-button>
+            </b-col>
+        </b-row>
     </b-form>
     <hr>
-    <b-table hover striped :items="users" :fields="fields"></b-table>
+    <b-table hover striped :items="users" :fields="fields">
+        <template slot="actions" slot-scope="data">
+            <b-button variant="warning" @click="loadUser(data.item)" class="mr-2">
+                <i class="fa fa-pencil"></i>
+            </b-button>
+            <b-button variant="danger" @click="loadUser(data.item, 'remove')">
+                <i class="fa fa-trash"></i>
+            </b-button>
+        </template>
+    </b-table>
   </div>
 </template>
 
@@ -97,6 +110,10 @@ export default {
                     this.reset()
                 })
                 .catch(showError)
+        },
+        loadUser(user, mode = 'save') {
+            this.mode = mode
+            this.user = { ...user }
         }
     },
     mounted() {
