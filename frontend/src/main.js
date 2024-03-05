@@ -11,7 +11,7 @@ import axios from 'axios'
 
 Vue.config.productionTip = false
 
-axios.defaults.headers.common['Authorization'] = 'bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6NiwibmFtZSI6Ilh5IEluYWciLCJlbWFpbCI6Inh5aWdAZ21haWwuY29tIiwiYWRtaW4iOmZhbHNlLCJpYXQiOjE3MDk1ODc2ODQsImV4cCI6MTcwOTg0Njg4NH0.VkD04vfhWVIYnpiJy1xJ39Dw_A0dmMhYVugaDlwqSrc'
+axios.defaults.headers.common['Authorization'] = 'bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwibmFtZSI6Ikx1Y2FzIEUuIEZyZXkiLCJlbWFpbCI6Imx1Y2FzZnJleUBnbWFpbC5jb20iLCJhZG1pbiI6dHJ1ZSwiaWF0IjoxNzA5NjAzNTQ1LCJleHAiOjE3MDk4NjI3NDV9.4gDMJLvDquqiTI4BBYVMTa13n0ggM1nozw_oGEHiAXU'
 
 new Vue({
   store,
