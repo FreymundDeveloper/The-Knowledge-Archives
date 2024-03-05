@@ -9,8 +9,8 @@
       </b-form-group>
       <b-form-group label="Main Category:" label-for="category-parentId">
           <b-form-select  v-if="mode === 'save'" 
-            id="category-parentId" :readonly="mode === 'remove'"
-            :options="categories" v-model="category.parentId" />
+            id="category-parentId" :options="categories" 
+            v-model="category.parentId" />
           <b-form-input v-else 
             id="category-parentId" type="text" v-model="category.path" readonly />
       </b-form-group>
