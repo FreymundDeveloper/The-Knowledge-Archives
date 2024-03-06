@@ -3,7 +3,7 @@
         <TitleMain icon="fa fa-folder-o" :main="category.name" sub="Category" />
         <ul>
             <li v-for="article in articles" :key="article.id">
-                {{ article.name }}
+                <ArticleItem :article="article" />
             </li>
         </ul>
         <div class="load-more">
@@ -14,13 +14,14 @@
 </template>
 
 <script>
-import TitleMain from '../template/TitleMain.vue'
 import axios from 'axios'
 import { baseApiUrl } from '@/global'
+import TitleMain from '../template/TitleMain.vue'
+import ArticleItem from './ArticleItem.vue'
 
 export default {
     name: 'ArticlesByCategory',
-    components: { TitleMain },
+    components: { TitleMain, ArticleItem },
     data: function() {
         return {
             category: {},
