@@ -1,5 +1,6 @@
 import Vue from 'vue'
 
+export const userKey = '__knowledge_user';
 export const baseApiUrl = 'http://localhost:3001';
 
 export function showError(err) {
