@@ -18,7 +18,6 @@ import ContentMain from './components/template/ContentMain.vue';
 import FooterMain from './components/template/FooterMain.vue';
 import LoadingMain from './components/template/LoadingMain.vue';
 
-// cast.ru@gmail.com
 export default {
 	name: "App",
 	components: { HeaderMain, MenuMain, ContentMain, FooterMain, LoadingMain },
