@@ -1,7 +1,7 @@
 <template>
-	<div id="app" :class="{'hide-menu': !isMenuVisible}">
-		<HeaderMain title="The Knowledge Archives" :hideToggle="false" :hideUserDropdown="false" />
-		<MenuMain />
+	<div id="app" :class="{'hide-menu': !isMenuVisible || !user}">
+		<HeaderMain title="The Knowledge Archives" :hideToggle="!user" :hideUserDropdown="!user" />
+		<MenuMain v-if="user"/>
 		<ContentMain />
 		<FooterMain />
 	</div>
@@ -17,7 +17,7 @@ import FooterMain from './components/template/FooterMain.vue';
 export default {
 	name: "App",
 	components: { HeaderMain, MenuMain, ContentMain, FooterMain },
-	computed: mapState(['isMenuVisible'])
+	computed: mapState(['isMenuVisible', 'user'])
 }
 </script>
 
