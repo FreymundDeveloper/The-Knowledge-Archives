@@ -41,8 +41,11 @@ $ npm install
 # Open two terminals and go to "cd ./backend" in one, then run:
 $ npm run start
 
-# In the other terminal go to "cd ./frontend" in the, then run:
+# In the other terminal go to "cd ./frontend", then run:
 $ npm run serve
+
+# Or for a production version:
+$ npm run build
 ```
 
 **Explanation**: The checks in the above observations are necessary due to possible security problems and the instability of the Knex library, which is already old.
