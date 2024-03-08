@@ -6,7 +6,7 @@ module.exports = app => {
     const encryptPassword = password => {
         const salt = bcrypt.genSaltSync(10);
         return bcrypt.hashSync(password, salt);
-    }
+    };
 
     const save = async (req, res) => {
         const user = { ...req.body };
@@ -43,14 +43,14 @@ module.exports = app => {
                            .then(_ => res.status(204).send())
                            .catch(err => res.status(500).send(err))
         }
-    }
+    };
 
     const get = (req, res) => {
         app.db('users').select('id', 'name', 'email', 'admin')
                        .whereNull('deletedAt')
                        .then(users => res.json(users))
                        .catch(err => res.status(500).send(err))
-    }
+    };
 
     const getById = (req, res) => {
         app.db('users').select('id', 'name', 'email', 'admin')
@@ -59,7 +59,7 @@ module.exports = app => {
                        .first()
                        .then(user => res.json(user))
                        .catch(err => res.status(500).send(err))
-    }
+    };
 
     const remove = async (req, res) => {
         try {
@@ -74,7 +74,7 @@ module.exports = app => {
         } catch (message) {
             res.status(400).send(message);
         }
-    }
+    };
 
-    return { save, get, getById, remove }
+    return { save, get, getById, remove };
 }

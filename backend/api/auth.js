@@ -4,7 +4,7 @@ const bcrypt = require('bcrypt-nodejs');
 
 module.exports = app => {
     const signin = async (req, res) => {
-        if(!req.body.email || !req.body.password) return res.status(400).send('Informe a user and password')
+        if(!req.body.email || !req.body.password) return res.status(400).send('Informe a user and password');
 
         const user = await app.db('users').where({ email: req.body.email }).first();
 
@@ -40,11 +40,11 @@ module.exports = app => {
             }
 
         } catch (errorFound) {
-            //
+            res.status(403).send(message);
         }
 
         res.send(false);
-    }
+    };
 
-    return { signin, validateToken }
+    return { signin, validateToken };
 }

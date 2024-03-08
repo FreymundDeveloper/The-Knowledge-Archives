@@ -28,7 +28,7 @@ module.exports = app => {
                               .then(_ => res.status(204).send())
                               .catch(err => res.status(500).send(err))
         }
-    }
+    };
 
     const remove = async (req, res) => {
         try {
@@ -46,7 +46,7 @@ module.exports = app => {
         } catch(message) {
             res.status(500).send(message);
         }
-    }
+    };
 
     const limit = 10;
     const get = async (req, res) => {
@@ -69,7 +69,7 @@ module.exports = app => {
                             return res.json(article);
                           })
                           .catch(err => res.status(500).send(err))
-    }
+    };
 
     const getByCategory = async (req, res) => {
         const categoryId = req.params.id;
@@ -85,7 +85,7 @@ module.exports = app => {
            .orderBy('a.id', 'desc')
            .then(articles => res.json(articles))
            .catch(err => res.status(500).send(err))
-    }
+    };
 
     return { save, remove, get, getById, getByCategory };
 }

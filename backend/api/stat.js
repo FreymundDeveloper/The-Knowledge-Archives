@@ -9,7 +9,7 @@ module.exports = app => {
     const get = (req, res) => {
         Stat.findOne({}, {}, { sort: { 'createdAt' : -1 } })
             .then(stat => res.json(stat || {}))
-    }
+    };
 
-    return { Stat, get }
+    return { Stat, get };
 }

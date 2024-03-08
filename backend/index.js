@@ -17,5 +17,5 @@ consign().include('./config/passport.js')
          .into(app);
 
 app.listen(3001, () => {
-    console.log('Ah sh*t, here we go again')
+    console.log('Application running successfully!');
 })

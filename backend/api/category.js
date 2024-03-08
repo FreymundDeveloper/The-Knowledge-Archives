@@ -2,8 +2,6 @@ module.exports = app => {
     const { existsOrError, notExistsOrError } = app.api.validation;
 
     const save = (req, res) => {
-        //const category = { ...req.body };
-        
         const category = {
             id: req.body.id,
             name: req.body.name,
@@ -29,7 +27,7 @@ module.exports = app => {
                                 .then(_ => res.status(204).send())
                                 .catch(err => res.status(500).send(err))
         }
-    }
+    };
 
     const remove = async (req, res) => {
         try {
@@ -49,7 +47,7 @@ module.exports = app => {
         } catch(message) {
             res.status(400).send(message);
         }
-    }
+    };
 
     const withPath = categories => {
         const getParent = (categories, parentId) => {
@@ -76,19 +74,19 @@ module.exports = app => {
         });
 
         return categoriesWithPath;
-    }
+    };
 
     const get = (req, res) => {
         app.db('categories').then(categories => res.json(withPath(categories)))
                             .catch(err => res.status(500).send(err))
-    }
+    };
 
     const getById = (req, res) => {
         app.db('categories').where({ id: req.params.id })
                             .first()
                             .then(category => res.json(category))
                             .catch(err => res.status(500).send(err))
-    }
+    };
 
     const toTree = (categories, tree) => {
         if(!tree) tree = categories.filter(call => !call.parentId)
@@ -99,12 +97,12 @@ module.exports = app => {
         })
 
         return tree;
-    }
+    };
 
     const getTree = (req, res) => {
         app.db('categories').then(categories => res.json(toTree(categories)))
                             .catch(err => res.status(500).send(err))
-    }
+    };
 
     return { save, remove, get, getById, getTree };
 }

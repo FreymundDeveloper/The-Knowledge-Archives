@@ -3,7 +3,7 @@ module.exports = middleware => {
         if (req.user.admin) {
             middleware(req, res, next);
         } else {
-            res.status(401).send('User is not one administrator.')
+            res.status(401).send('User is not one administrator.');
         }
-    }
+    };
 }
