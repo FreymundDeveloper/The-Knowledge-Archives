@@ -1,6 +1,6 @@
 <template>
     <footer class="footer">
-        <span>Copyright <strong>FD</strong> © 2024</span>
+        <span>Copyright <strong>FreymundDeveloper</strong> © 2024 - Thanks to <strong>Cod3r</strong>!</span>
     </footer>
 </template>
 
