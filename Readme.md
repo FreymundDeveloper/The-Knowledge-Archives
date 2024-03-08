@@ -31,7 +31,9 @@ All routes are linked to the "localhost:3001/ ..." address. The backend runs on 
 
 **Obs 3**: Also check that the address mentioned above is correctly indicated within "backend\node_modules\knex\lib\util\make-knex.js";
 
-**Obs 4**: Make sure the Backend is running before starting the Frontend, otherwise bugs may occur.
+**Obs 4**: Ensure that MongoDB and PostgreSQL are installed and running on your machine;
+
+**Obs 5**: Make sure the Backend is running before starting the Frontend, otherwise bugs may occur.
 
 ```bash
 # Installation
